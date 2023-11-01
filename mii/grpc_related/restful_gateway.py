@@ -51,7 +51,7 @@ class RestfulGatewayThread(threading.Thread):
         threading.Thread.__init__(self)
 
         app = createRestfulGatewayApp(deployment_name, task, lb_port, self)
-        self.server = make_server("127.0.0.1", rest_port, app)
+        self.server = make_server("0.0.0.0", rest_port, app)
         self.ctx = app.app_context()
         self.ctx.push()
 
