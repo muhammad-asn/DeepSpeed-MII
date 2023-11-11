@@ -3,18 +3,11 @@
 
 # DeepSpeed Team
 import grpc
-from .server import MIIServer
-from .client import MIIClient, mii_query_handle
-from .deployment import deploy
-from .terminate import terminate
-from .constants import DeploymentType, TaskType
-from .aml_related.utils import aml_output_path
-from .config import MIIConfig, ModelConfig
-from .utils import get_supported_models
-from .grpc_related.proto import modelresponse_pb2_grpc
+from .api import client, serve, pipeline
+
+from .legacy import MIIServer, MIIClient, mii_query_handle, deploy, terminate, DeploymentType, TaskType, aml_output_path, MIIConfig, ModelConfig, get_supported_models
 
 __version__ = "0.0.0"
-non_persistent_models = {}
 try:
     from .version import __version__
 except ImportError:
